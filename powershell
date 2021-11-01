@@ -1,0 +1,13 @@
+Get-DbaBuildReference  -CumulativeUpdate CU26 -KB KB5005226  -Update
+
+#server list 
+$ServerList = 'DESKTOP-V0UFSNU\MSSQLSERVER'
+
+# all instance same credential 
+$cred = Get-Credential DESKTOP-V0UFSNU\frk
+
+#Set the version that you want to update to
+$version = '2017CU26'
+
+#Start Patching! path = cu and sp location
+Update-DbaInstance -ComputerName $ServerList -Path 'C:\frk\setuplar\sql-setuplar\SQL2017\CU26\' -Credential $cred -Version $version -Restart  -Debug
